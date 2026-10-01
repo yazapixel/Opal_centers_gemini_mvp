@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز أوبال للجمال والعناية | Opal Centers - Benghazi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top Bar & Announcement -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-quick">
+                <span>📍 شارع العزيزية (مقابل صيدلية أفريقيا)، بنغازي</span>
+                <span>📞 الحجز والاستعلام: 092XXXXXXX</span>
+            </div>
+            <div class="lang-social">
+                <span class="badge-open">مفتوح الآن حتى 9:00 مساءً</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">💎</span>
+                <div class="logo-text">
+                    <h1>مركز أوبال</h1>
+                    <span class="logo-sub">Opal Centers</span>
+                </div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active">الرئيسية</a>
+                <a href="#services" class="nav-link">خدماتنا</a>
+                <a href="#about" class="nav-link">من نحن</a>
+                <a href="#location" class="nav-link">الموقع وتواصل معنا</a>
+                <button class="btn btn-primary nav-cta" id="openBookingModal">احجز موعدك</button>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">✨ الوجهة الأولى للفخامة والجمال في بنغازي</div>
+            <h1>تألقي بإطلالة ساحرة وعناية ملكية في <span class="highlight">مركز أوبال</span></h1>
+            <p>نقدم أحدث تقنيات العناية بالبشرة، إزالة الشعر بالليزر، التجميل، والسبا تحت إشراف نخبة من الخبيرات والمتخصصات.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-lg" id="heroBookBtn">احجز موعدك الآن</button>
+                <a href="#services" class="btn btn-outline btn-lg">استعرض الخدمات</a>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <span>🌟</span>
+                    <div>
+                        <strong>أحدث التقنيات</strong>
+                        <p>أجهزة طبية وتجميلية عالمية</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span>👩‍⚕️</span>
+                    <div>
+                        <strong>خبيرات متخصصات</strong>
+                        <p>فريق محترف بخبرة عالية</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span>🌿</span>
+                    <div>
+                        <strong>أجواء استرخائية</strong>
+                        <p>راحة وفخامة تناسب ملكيتك</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">خدماتنا التجميلية المتكاملة</span>
+                <h2>كل ما تحتاجه أنوثتك وأناقتك في مكان واحد</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">💆‍♀️</div>
+                    <h3>العناية بالبشرة وتنظيف عميق</h3>
+                    <p>جلسات هيدرافيشل، تنظيف عميق، نضارة، وعلاج التصبغات بأجود المنتجات العالمية.</p>
+                    <ul class="service-tags">
+                        <li>هيدرافيشل</li>
+                        <li>نضارة الوجه</li>
+                        <li>علاج حب الشباب</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline service-book" data-service="العناية بالبشرة">احجز هذه الخدمة</button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>إزالة الشعر بالليزر</h3>
+                    <p>أحدث أجهزة الليزر الطبية لنتائج فعالة، آمنة، وبدون ألم لجميع أنواع البشرة.</p>
+                    <ul class="service-tags">
+                        <li>جهاز متطور</li>
+                        <li>نتائج سريعة</li>
+                        <li>جلسات آمنة</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline service-book" data-service="إزالة الشعر بالليزر">احجز هذه الخدمة</button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">💇‍♀️</div>
+                    <h3>العناية بالشعر والقص</h3>
+                    <p>أحدث قصات الشعر، الصبغات العالمية، علاجات البروتين، والفيلر لشعر صحي ولامع.</p>
+                    <ul class="service-tags">
+                        <li>قص وتصفيف</li>
+                        <li>صبغات وخصل</li>
+                        <li>علاج وفرد</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline service-book" data-service="العناية بالشعر">احجز هذه الخدمة</button>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3>السبا والاسترخاء للجسم</h3>
+                    <p>جلسات مساج استرخائي وعلاجي، حمام مغربي ملكي، وتقشير للجسم لتجديد الحيوية.</p>
+                    <ul class="service-tags">
+                        <li>مساج استرخائي</li>
+                        <li>حمام مغربي</li>
+                        <li>تقشير الجسم</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline service-book" data-service="السبا والاسترخاء">احجز هذه الخدمة</button>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">💄</div>
+                    <h3>المكياج وبكجات العرائس</h3>
+                    <p>مكياج سهرة وعرائس احترافي بأيدي خبيرات تجميل عالميات لإطلالة لا تنسى.</p>
+                    <ul class="service-tags">
+                        <li>مكياج عرائس</li>
+                        <li>مكياج سهرة</li>
+                        <li>تسريحات خاصة</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline service-book" data-service="المكياج وبكجات العرائس">احجز هذه الخدمة</button>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">💅</div>
+                    <h3>العناية بالأظافر واليدين</h3>
+                    <p>بديكير ومانيكير احترافي، تركيب أظافر، جيل بوليش، ورسم وتصميم عصري.</p>
+                    <ul class="service-tags">
+                        <li>بديكير ومانيكير</li>
+                        <li>جيل بوليش</li>
+                        <li>العناية باليدين</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline service-book" data-service="العناية بالأظافر">احجز هذه الخدمة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section bg-light" id="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <div class="image-box">
+                    <div class="image-placeholder">
+                        <span>💎</span>
+                        <p>مركز أوبال الفاخر</p>
+                    </div>
+                </div>
+                <div class="experience-badge">
+                    <span class="number">+5</span>
+                    <span class="text">سنوات من التميز والفخامة في بنغازي</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-subtitle">من نحن</span>
+                <h2>الملاذ المثالي لجمالك وعنايتك الشخصية في قلب بنغازي</h2>
+                <p>تأسس <strong>مركز أوبال (Opal Centers)</strong> ليكون العنوان الأول لكل سيدة تبحث عن الجودة الفائقة، الفخامة، والاحترافية. نؤمن بأن كل امرأة تستحق عناية ملكية تبرز جمالها وتمنحها الثقة والاسترخاء.</p>
+                <p>نحرص في مركزنا الواقع في <strong>شارع العزيزية</strong> على استخدام أفضل المعدات الطبية والمنتجات التجميلية العالمية المعتمدة، مع طاقم عمل محترف يسعى دائماً لتجاوز توقعاتك.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <strong>+3,000</strong>
+                        <span>عميلة راضية</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>+15</strong>
+                        <span>خدمة تجميلية</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>100%</strong>
+                        <span>منتجات أصلية</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="aboutBookBtn">احجزي موعدك القادم</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="location section" id="location">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">زورونا وتواصلوا معنا</span>
+                <h2>موقعنا في بنغازي وطرق التواصل</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>العنوان</h4>
+                            <p>شارع العزيزية (الشارع المقابل لصيدلية أفريقيا)، بنغازي، ليبيا</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🕒</div>
+                        <div>
+                            <h4>أوقات العمل</h4>
+                            <p>السبت إلى الخميس: 10:00 صباحاً – 9:00 مساءً<br>الجمعة: مغلق</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>رقم الهاتف / واتساب</h4>
+                            <p>+218 92 XXXXXXX<br>+218 91 XXXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🌐</div>
+                        <div>
+                            <h4>منصات التواصل</h4>
+                            <p>إنستغرام: @OpalCenters.Benghazi<br>فيسبوك: Opal Centers</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/fWJ65pRUiGYqJtR76" target="_blank" class="btn btn-outline btn-block">فتح الموقع على خريطة جوجل</a>
+                </div>
+
+                <div class="contact-form-card">
+                    <h3>أرسل لنا استفساراً</h3>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label for="inqName">الاسم الكريم</label>
+                            <input type="text" id="inqName" required placeholder="أدخل اسمك الكامل">
+                        </div>
+                        <div class="form-group">
+                            <label for="inqPhone">رقم الهاتف</label>
+                            <input type="tel" id="inqPhone" required placeholder="092XXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="inqMessage">الرسالة أو الاستفسار</label>
+                            <textarea id="inqMessage" rows="4" required placeholder="اكتب استفسارك هنا..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">إرسال الاستفسار</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <span class="logo-icon">💎</span>
+                    <div class="logo-text">
+                        <h3>مركز أوبال</h3>
+                        <span>Opal Centers</span>
+                    </div>
+                </div>
+                <p>وجهتك الأولى للعناية الفاخرة والجمال المتكامل في بنغازي، ليبيا.</p>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#hero">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#location">الموقع</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>خدمات رئيسية</h4>
+                <ul>
+                    <li>العناية بالبشرة وهيدرافيشل</li>
+                    <li>إزالة الشعر بالليزر</li>
+                    <li>العناية بالشعر والقص</li>
+                    <li>السبا والحمام المغربي</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>تابعنا</h4>
+                <p>ابق على اطلاع دائم بأحدث العروض والخدمات الحصرية.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 مركز أوبال (Opal Centers) - بنغازي، ليبيا. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h3>💎 حجز موعد في مركز أوبال</h3>
+                <p>املئي البيانات أدناه وسنتواصل معك تأكيد الموعد في أقرب وقت.</p>
+            </div>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="bookName">الاسم الكريم *</label>
+                    <input type="text" id="bookName" required placeholder="ادخلي اسمك الكامل">
+                </div>
+                <div class="form-group">
+                    <label for="bookPhone">رقم الهاتف (واتساب) *</label>
+                    <input type="tel" id="bookPhone" required placeholder="092XXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="bookService">اختر الخدمة *</label>
+                    <select id="bookService" required>
+                        <option value="">-- اختاري الخدمة المطلوبة --</option>
+                        <option value="العناية بالبشرة">العناية بالبشرة وتنظيف عميق</option>
+                        <option value="إزالة الشعر بالليزر">إزالة الشعر بالليزر</option>
+                        <option value="العناية بالشعر">العناية بالشعر والقص</option>
+                        <option value="السبا والاسترخاء">السبا والاسترخاء للجسم</option>
+                        <option value="المكياج وبكجات العرائس">المكياج وبكجات العرائس</option>
+                        <option value="العناية بالأظافر">العناية بالأظافر واليدين</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookDate">التاريخ المفضّل *</label>
+                    <input type="date" id="bookDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookNotes">ملاحظات إضافية (اختياري)</label>
+                    <textarea id="bookNotes" rows="2" placeholder="أي تفضيلات أو مواعيد محددة..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">تأكيد طلب الحجز</button>
+            </form>
+            <div id="bookingSuccess" class="success-message hidden">
+                <div class="success-icon">✅</div>
+                <h4>تم إرسال طلب حجزك بنجاح!</h4>
+                <p>شكراً لثقتك بمركز أوبال. سيتواصل معك فريق خدمة العملاء عبر الهاتف أو الوساب لتأكيد الموعد خلال دقائق.</p>
+                <button class="btn btn-primary" id="resetBooking">حجز موعد آخر</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
