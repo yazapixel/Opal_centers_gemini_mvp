@@ -52,7 +52,7 @@ class TestOpalCentersMVP(unittest.TestCase):
         with open(self.css_path, 'r', encoding='utf-8') as f:
             css = f.read()
 
-        self.assertIn("--primary", css)
+        self.assertIn("--gold-primary", css)
         self.assertIn("display: grid", css)
         self.assertIn("@media", css)
         self.assertIn("scroll-behavior: smooth", css)
