@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Top Bar & Announcement -->
+    <!-- Top Bar & Live Opening Status -->
     <div class="top-bar">
         <div class="container top-bar-content">
             <div class="contact-quick">
-                <span>📍 شارع العزيزية (مقابل صيدلية أفريقيا)، بنغازي</span>
-                <span>📞 الحجز والاستعلام: 092XXXXXXX</span>
+                <span>
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    شارع العزيزية (مقابل صيدلية أفريقيا)، بنغازي
+                </span>
+                <a href="tel:+218920000000">
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    092XXXXXXX
+                </a>
             </div>
             <div class="lang-social">
-                <span class="badge-open">مفتوح الآن حتى 9:00 مساءً</span>
+                <span class="status-pill open" id="openingStatus">
+                    <span class="status-dot"></span>
+                    <span id="statusText">مفتوح الآن لاستقبالكم</span>
+                </span>
             </div>
         </div>
     </div>
@@ -27,8 +36,15 @@
     <!-- Navigation Header -->
     <header class="header">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">💎</span>
+            <a href="#" class="logo" aria-label="مركز أوبال - الصفحة الرئيسية">
+                <svg class="logo-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+                    <polygon points="50,6 88,32 74,90 26,90 12,32" stroke="currentColor" fill="rgba(163, 123, 92, 0.08)"/>
+                    <polygon points="50,6 74,90 26,90" stroke="currentColor"/>
+                    <line x1="50" y1="6" x2="50" y2="90" stroke="currentColor"/>
+                    <line x1="12" y1="32" x2="88" y2="32" stroke="currentColor"/>
+                    <line x1="50" y1="32" x2="74" y2="90" stroke="currentColor"/>
+                    <line x1="50" y1="32" x2="26" y2="90" stroke="currentColor"/>
+                </svg>
                 <div class="logo-text">
                     <h1>مركز أوبال</h1>
                     <span class="logo-sub">Opal Centers</span>
@@ -36,12 +52,17 @@
             </a>
             <nav class="nav-menu" id="navMenu">
                 <a href="#hero" class="nav-link active">الرئيسية</a>
-                <a href="#services" class="nav-link">خدماتنا</a>
-                <a href="#about" class="nav-link">من نحن</a>
-                <a href="#location" class="nav-link">الموقع وتواصل معنا</a>
-                <button class="btn btn-primary nav-cta" id="openBookingModal">احجز موعدك</button>
+                <a href="#services" class="nav-link">قائمة الخدمات</a>
+                <a href="#about" class="nav-link">فلسفتنا</a>
+                <a href="#features" class="nav-link">لماذا أوبال</a>
+                <a href="#faq" class="nav-link">الأسئلة الشائعة</a>
+                <a href="#location" class="nav-link">الموقع والتواصل</a>
+                <button class="btn btn-primary nav-cta" id="openBookingModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    حجز موعد
+                </button>
             </nav>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="قائمة التنقل">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -51,35 +72,54 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <div class="hero-badge">✨ الوجهة الأولى للفخامة والجمال في بنغازي</div>
-            <h1>تألقي بإطلالة ساحرة وعناية ملكية في <span class="highlight">مركز أوبال</span></h1>
-            <p>نقدم أحدث تقنيات العناية بالبشرة، إزالة الشعر بالليزر، التجميل، والسبا تحت إشراف نخبة من الخبيرات والمتخصصات.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary btn-lg" id="heroBookBtn">احجز موعدك الآن</button>
-                <a href="#services" class="btn btn-outline btn-lg">استعرض الخدمات</a>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    الوجهة الأرقى للعناية المتكاملة في بنغازي
+                </div>
+                <h1>تألقي بجمال فريد كالأوبال في <span class="highlight">مركز أوبال</span></h1>
+                <p>وجهة رائدة في طب الجلدية التجميلي، علاجات الليزر المتطورة، العناية بالبشرة، والاسترخاء الفاخر بإشراف نخبة من الأخصائيات في قلب بنغازي.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg" id="heroBookBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        حجز موعد فوري
+                    </button>
+                    <a href="https://wa.me/218920000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%A3%D9%88%D8%A8%D8%A7%D9%84%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%B9%D9%8A%D8%AF%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9" target="_blank" class="btn btn-whatsapp btn-lg">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        تواصل عبر واتساب
+                    </a>
+                </div>
             </div>
-            <div class="hero-features">
-                <div class="feature-item">
-                    <span>🌟</span>
-                    <div>
-                        <strong>أحدث التقنيات</strong>
-                        <p>أجهزة طبية وتجميلية عالمية</p>
+            <div class="hero-card-display">
+                <div class="hero-card-quote">"الفخامة ليست مجرد مظهر، بل هي العناية التي تليق بتفاصيلك الخاصة."</div>
+                <div class="hero-pillars">
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <h4>أجهزة طبية متطورة</h4>
+                            <p>أحدث تقنيات الليزر والعناية بالبشرة المعتمدة عالمياً</p>
+                        </div>
                     </div>
-                </div>
-                <div class="feature-item">
-                    <span>👩‍⚕️</span>
-                    <div>
-                        <strong>خبيرات متخصصات</strong>
-                        <p>فريق محترف بخبرة عالية</p>
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div>
+                            <h4>طاقم خبيرات محترف</h4>
+                            <p>استشارات مخصصة لكل بشرة وجلسات عناية بأعلى المعايير</p>
+                        </div>
                     </div>
-                </div>
-                <div class="feature-item">
-                    <span>🌿</span>
-                    <div>
-                        <strong>أجواء استرخائية</strong>
-                        <p>راحة وفخامة تناسب ملكيتك</p>
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        </div>
+                        <div>
+                            <h4>خصوصية تامة ورفاهية</h4>
+                            <p>أجنحة مستقلة ومجهزة لراحتك التامة في بنغازي</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,190 +130,463 @@
     <section class="services section" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">خدماتنا التجميلية المتكاملة</span>
-                <h2>كل ما تحتاجه أنوثتك وأناقتك في مكان واحد</h2>
+                <span class="section-subtitle">قائمة العلاجات والتجميل</span>
+                <h2>عناية متخصصة ومصممة لكل تفاصيلك</h2>
+                <p>نجمع بين أحدث ما توصل إليه طب التجميل والسبا الفاخر لنمنحك نتائج حقيقية تدوم.</p>
                 <div class="divider"></div>
             </div>
 
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-icon">💆‍♀️</div>
-                    <h3>العناية بالبشرة وتنظيف عميق</h3>
-                    <p>جلسات هيدرافيشل، تنظيف عميق، نضارة، وعلاج التصبغات بأجود المنتجات العالمية.</p>
-                    <ul class="service-tags">
-                        <li>هيدرافيشل</li>
-                        <li>نضارة الوجه</li>
-                        <li>علاج حب الشباب</li>
-                    </ul>
-                    <button class="btn btn-sm btn-outline service-book" data-service="العناية بالبشرة">احجز هذه الخدمة</button>
+            <!-- Service Category Filter Tabs -->
+            <div class="service-tabs-wrapper">
+                <button class="tab-btn active" data-filter="all">جميع الخدمات</button>
+                <button class="tab-btn" data-filter="skincare">البشرة والنضارة</button>
+                <button class="tab-btn" data-filter="laser">إزالة الشعر بالليزر</button>
+                <button class="tab-btn" data-filter="hair">الشعر والتصفيف</button>
+                <button class="tab-btn" data-filter="spa">السبا والاسترخاء</button>
+                <button class="tab-btn" data-filter="bridal">العرائس والأظافر</button>
+            </div>
+
+            <div class="services-grid" id="servicesGrid">
+                <!-- Service 1: Skincare -->
+                <div class="service-card" data-category="skincare">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>
+                            </div>
+                            <span class="service-badge">الأكثر طلباً</span>
+                        </div>
+                        <h3>العناية بالبشرة وتنظيف عميق</h3>
+                        <p>جلسات هيدرافيشل طبية متكاملة، تقشير كربوني، وتغذية البشرة بأمصال النضارة والفيتامينات لإعادة الحيوية والإشراق الفوري.</p>
+                        <ul class="service-tags">
+                            <li>هيدرافيشل ملكي</li>
+                            <li>نضارة فورية</li>
+                            <li>تنظيف مسام عميق</li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-meta">
+                            <span>المدة: 60 دقيقة</span>
+                            <strong>استشارة مجانية</strong>
+                        </div>
+                        <button class="btn btn-sm btn-outline service-book" data-service="العناية بالبشرة">احجز الخدمة</button>
+                    </div>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>إزالة الشعر بالليزر</h3>
-                    <p>أحدث أجهزة الليزر الطبية لنتائج فعالة، آمنة، وبدون ألم لجميع أنواع البشرة.</p>
-                    <ul class="service-tags">
-                        <li>جهاز متطور</li>
-                        <li>نتائج سريعة</li>
-                        <li>جلسات آمنة</li>
-                    </ul>
-                    <button class="btn btn-sm btn-outline service-book" data-service="إزالة الشعر بالليزر">احجز هذه الخدمة</button>
+                <!-- Service 2: Laser -->
+                <div class="service-card" data-category="laser">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            </div>
+                            <span class="service-badge">تقنية كانديلا / دايود</span>
+                        </div>
+                        <h3>إزالة الشعر بالليزر المتطور</h3>
+                        <p>جلسات ليزر طبية سريعة ودقيقة مزودة بنظام تبريد فائق لضمان الراحة التامة لجميع درجات البشرة ونتائج ملحوظة من أول جلسة.</p>
+                        <ul class="service-tags">
+                            <li>تبريد ذكي</li>
+                            <li>آمن ومعتمد</li>
+                            <li>نتائج طويلة الأمد</li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-meta">
+                            <span>جلسات فردية وبكجات</span>
+                            <strong>تحديد وفق المنطقة</strong>
+                        </div>
+                        <button class="btn btn-sm btn-outline service-book" data-service="إزالة الشعر بالليزر">احجز الخدمة</button>
+                    </div>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-icon">💇‍♀️</div>
-                    <h3>العناية بالشعر والقص</h3>
-                    <p>أحدث قصات الشعر، الصبغات العالمية، علاجات البروتين، والفيلر لشعر صحي ولامع.</p>
-                    <ul class="service-tags">
-                        <li>قص وتصفيف</li>
-                        <li>صبغات وخصل</li>
-                        <li>علاج وفرد</li>
-                    </ul>
-                    <button class="btn btn-sm btn-outline service-book" data-service="العناية بالشعر">احجز هذه الخدمة</button>
+                <!-- Service 3: Hair -->
+                <div class="service-card" data-category="hair">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+                            </div>
+                            <span class="service-badge">علاجات أصلية</span>
+                        </div>
+                        <h3>علاجات الشعر والتصفيف العصري</h3>
+                        <p>قص احترافي، صبغات بدرجات عالمية راقية، وعلاجات ترميمية مكثفة تشمل الفيلر والبروتين الخالي من الفورمالين لشعر صحي ولامع.</p>
+                        <ul class="service-tags">
+                            <li>قص وسشوار</li>
+                            <li>صبغات وميش</li>
+                            <li>ترميم كولاجين</li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-meta">
+                            <span>المدة: 90 دقيقة</span>
+                            <strong>منتجات إيطالية وفرنسية</strong>
+                        </div>
+                        <button class="btn btn-sm btn-outline service-book" data-service="العناية بالشعر">احجز الخدمة</button>
+                    </div>
                 </div>
 
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-icon">🌸</div>
-                    <h3>السبا والاسترخاء للجسم</h3>
-                    <p>جلسات مساج استرخائي وعلاجي، حمام مغربي ملكي، وتقشير للجسم لتجديد الحيوية.</p>
-                    <ul class="service-tags">
-                        <li>مساج استرخائي</li>
-                        <li>حمام مغربي</li>
-                        <li>تقشير الجسم</li>
-                    </ul>
-                    <button class="btn btn-sm btn-outline service-book" data-service="السبا والاسترخاء">احجز هذه الخدمة</button>
+                <!-- Service 4: Spa -->
+                <div class="service-card" data-category="spa">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 3c-1.5 3-4 6-8 7 4 1 6.5 4 8 7 1.5-3 4-6 8-7-4-1-6.5-4-8-7z"></path></svg>
+                            </div>
+                            <span class="service-badge">استرخاء ملكي</span>
+                        </div>
+                        <h3>السبا والحمام المغربي الفاخر</h3>
+                        <p>تجربة استرخائية متكاملة بالصابون البلدي والأعشاب العطرية، تليها جلسة مساج بالأحجار الساخنة لفك التوتر وتجديد الطاقة الحيوية.</p>
+                        <ul class="service-tags">
+                            <li>حمام ملكي خاص</li>
+                            <li>مساج عطري</li>
+                            <li>تقشير وتوحيد لون</li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-meta">
+                            <span>المدة: 120 دقيقة</span>
+                            <strong>أجنحة خاصة معقمة</strong>
+                        </div>
+                        <button class="btn btn-sm btn-outline service-book" data-service="السبا والاسترخاء">احجز الخدمة</button>
+                    </div>
                 </div>
 
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-icon">💄</div>
-                    <h3>المكياج وبكجات العرائس</h3>
-                    <p>مكياج سهرة وعرائس احترافي بأيدي خبيرات تجميل عالميات لإطلالة لا تنسى.</p>
-                    <ul class="service-tags">
-                        <li>مكياج عرائس</li>
-                        <li>مكياج سهرة</li>
-                        <li>تسريحات خاصة</li>
-                    </ul>
-                    <button class="btn btn-sm btn-outline service-book" data-service="المكياج وبكجات العرائس">احجز هذه الخدمة</button>
+                <!-- Service 5: Bridal -->
+                <div class="service-card" data-category="bridal">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M2 17l10-12 10 12H2z"></path><path d="M12 5v12"></path></svg>
+                            </div>
+                            <span class="service-badge">بكجات شاملة</span>
+                        </div>
+                        <h3>بكجات العرائس ومكياج السهرة</h3>
+                        <p>باقة متكاملة للعروس تشمل جلسات نضارة البشرة، السبا، تصفيف الشعر ومكياج سينمائي ساحر يبرز جمال ملامحك في ليلتك الكبرى.</p>
+                        <ul class="service-tags">
+                            <li>مكياج عرائس فخم</li>
+                            <li>تسريحات خاصة</li>
+                            <li>برنامج ما قبل الزفاف</li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-meta">
+                            <span>حجز مسبق مطلوب</span>
+                            <strong>استشارة تجريبية</strong>
+                        </div>
+                        <button class="btn btn-sm btn-outline service-book" data-service="المكياج وبكجات العرائس">احجز الخدمة</button>
+                    </div>
                 </div>
 
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="service-icon">💅</div>
-                    <h3>العناية بالأظافر واليدين</h3>
-                    <p>بديكير ومانيكير احترافي، تركيب أظافر، جيل بوليش، ورسم وتصميم عصري.</p>
-                    <ul class="service-tags">
-                        <li>بديكير ومانيكير</li>
-                        <li>جيل بوليش</li>
-                        <li>العناية باليدين</li>
-                    </ul>
-                    <button class="btn btn-sm btn-outline service-book" data-service="العناية بالأظافر">احجز هذه الخدمة</button>
+                <!-- Service 6: Nails -->
+                <div class="service-card" data-category="bridal">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                            </div>
+                            <span class="service-badge">عناية فائقة</span>
+                        </div>
+                        <h3>العناية بالأظافر واليدين</h3>
+                        <p>مانيكير وبديكير روسي، تركيب أظافر جل وأكريليك، وتصاميم فنية عصرية مع عناية مركزة بترطيب وتفتيح اليدين والقدمين.</p>
+                        <ul class="service-tags">
+                            <li>بديكير سبا</li>
+                            <li>جل بوليش طويل الأمد</li>
+                            <li>أدوات معقمة طبياً</li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-meta">
+                            <span>المدة: 45 دقيقة</span>
+                            <strong>ألوان حصرية</strong>
+                        </div>
+                        <button class="btn btn-sm btn-outline service-book" data-service="العناية بالأظافر">احجز الخدمة</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about section bg-light" id="about">
-        <div class="container about-container">
-            <div class="about-image">
-                <div class="image-box">
-                    <div class="image-placeholder">
-                        <span>💎</span>
-                        <p>مركز أوبال الفاخر</p>
+    <section class="about section bg-sand" id="about">
+        <div class="container about-grid">
+            <div class="about-visual">
+                <div class="about-frame">
+                    <div class="about-frame-inner">
+                        <svg class="about-logo-mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polygon points="50,8 86,34 72,88 28,88 14,34" fill="rgba(163, 123, 92, 0.05)"/>
+                            <polygon points="50,8 72,88 28,88"/>
+                            <line x1="50" y1="8" x2="50" y2="88"/>
+                            <line x1="14" y1="34" x2="86" y2="34"/>
+                        </svg>
+                        <h3>مركز أوبال</h3>
+                        <span>Opal Centers • Benghazi</span>
                     </div>
                 </div>
-                <div class="experience-badge">
-                    <span class="number">+5</span>
-                    <span class="text">سنوات من التميز والفخامة في بنغازي</span>
+                <div class="experience-tag">
+                    <span class="number">5+</span>
+                    <span class="text">سنوات من الخبرة والريادة في بنغازي</span>
                 </div>
             </div>
             <div class="about-content">
-                <span class="section-subtitle">من نحن</span>
-                <h2>الملاذ المثالي لجمالك وعنايتك الشخصية في قلب بنغازي</h2>
-                <p>تأسس <strong>مركز أوبال (Opal Centers)</strong> ليكون العنوان الأول لكل سيدة تبحث عن الجودة الفائقة، الفخامة، والاحترافية. نؤمن بأن كل امرأة تستحق عناية ملكية تبرز جمالها وتمنحها الثقة والاسترخاء.</p>
-                <p>نحرص في مركزنا الواقع في <strong>شارع العزيزية</strong> على استخدام أفضل المعدات الطبية والمنتجات التجميلية العالمية المعتمدة، مع طاقم عمل محترف يسعى دائماً لتجاوز توقعاتك.</p>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <strong>+3,000</strong>
-                        <span>عميلة راضية</span>
+                <span class="section-subtitle">من نحن وفلسفتنا</span>
+                <h2>الملاذ الآمن لجمالك وعنايتك الشخصية في بنغازي</h2>
+                <p>انطلق <strong>مركز أوبال (Opal Centers)</strong> في بنغازي حاملاً رؤية تقوم على تقديم تجربة تجميل استثنائية ترقى لأعلى المعايير العالمية. نحن لا نقدم خدمات روتينية، بل نصمم خططاً علاجية وتجميلية متوافقة تماماً مع احتياجات بشرتك وشعرك.</p>
+                <p>موقعنا المتميز في <strong>شارع العزيزية (مقابل صيدلية أفريقيا)</strong> يجمع بين سهولة الوصول والهدوء التام داخل أروقة المركز، لنمنح كل عميلة تجربة تبعث على الراحة والخصوصية المطلقة.</p>
+                <div class="about-metrics">
+                    <div class="metric-item">
+                        <strong>3,500+</strong>
+                        <span>سيدة اختارت أوبال</span>
                     </div>
-                    <div class="stat-item">
-                        <strong>+15</strong>
-                        <span>خدمة تجميلية</span>
-                    </div>
-                    <div class="stat-item">
+                    <div class="metric-item">
                         <strong>100%</strong>
-                        <span>منتجات أصلية</span>
+                        <span>منتجات أصلية معتمدة</span>
+                    </div>
+                    <div class="metric-item">
+                        <strong>18+</strong>
+                        <span>علاجاً تجميلياً متخصصاً</span>
                     </div>
                 </div>
-                <button class="btn btn-primary" id="aboutBookBtn">احجزي موعدك القادم</button>
+                <button class="btn btn-primary" id="aboutBookBtn">
+                    احجزي استشارتك القادمة
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="features section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">معايير الجودة</span>
+                <h2>لماذا تختارين مركز أوبال؟</h2>
+                <p>التزام صارم بأعلى معايير السلامة الطبية، الاحترافية، والاهتمام بأدق التفاصيل.</p>
+                <div class="divider"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-circle">
+                        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>أحدث المعدات العالمية</h4>
+                    <p>أجهزة طبية متطورة تضمن أعلى درجات الفعالية والأمان لجميع أنواع البشرة.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-circle">
+                        <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                    </div>
+                    <h4>دقة المواعيد</h4>
+                    <p>نظام جدولة دقيق يحترم وقتك ويضمن لك دخول جلستك بدون فترات انتظار طويلة.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-circle">
+                        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    </div>
+                    <h4>استشارات مخصصة</h4>
+                    <p>جلسة تقييم مجانية لتحديد متطلباتك واقتراح الأنسب لك قبل بدء أي علاج.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon-circle">
+                        <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h4>تعقيم طبي صارم</h4>
+                    <p>بروتوكولات تعقيم ونظافة دورية مستمرة لجميع الأدوات والأجنحة الخاصة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section bg-sand">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">تجارب حقيقية</span>
+                <h2>ماذا تقول عميلاتنا في بنغازي؟</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars-rating">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <p>"أفضل جلسة هيدرافيشل قمت بها في بنغازي. النتيجة واضحة من نفس اليوم، ونظافة المكان والأجهزة فوق الممتازة."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-initials">ف.ع</div>
+                        <div class="author-meta">
+                            <h5>فاطمة العريبي</h5>
+                            <span>عميلة منتظمة • بنغازي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars-rating">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <p>"جهاز الليزر ممتاز وبدون ألم يذكر بفضل التبريد. الطاقم محترم جداً والتعامل راقي لأبعد حد."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-initials">س.م</div>
+                        <div class="author-meta">
+                            <h5>سارة المجبري</h5>
+                            <span>جلسات ليزر • بنغازي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars-rating">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <p>"حجزت باقة العروس مع الحمام المغربي والمكياج، كانت ليلة عمري استثنائية بفضل اهتمامهم واحترافيتهم."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-initials">م.ب</div>
+                        <div class="author-meta">
+                            <h5>مريم البرغثي</h5>
+                            <span>عروس أوبال • بنغازي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الأسئلة المتكررة</span>
+                <h2>كل ما ترغبين بمعرفته</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>هل جلسات إزالة الشعر بالليزر مؤلمة؟</span>
+                        <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        تعتمد أجهزتنا الطبية في مركز أوبال على أحدث أنظمة التبريد الديناميكي المستمر لسطح الجلد، مما يجعل الجلسة مريحة جداً وبدون ألم يذكر مقارنة بالأجهزة القديمة.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>كم تدوم نتائج جلسة الهيدرافيشل لتنظيف البشرة؟</span>
+                        <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        تظهر النضارة والنعومة الفورية مباشرة بعد انتهاء الجلسة، وتستمر نتائج التنظيف العميق من 3 إلى 4 أسابيع، ونوصي بجلسة دورية شهرية للحفاظ على صحة ومرونة البشرة.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>قبل كم من الوقت يجب حجز بكج العروس؟</span>
+                        <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        يُفضل التنسيق المسبق قبل موعد الزفاف بأسبوعين إلى شهر كامل، لنتمكن من وضع جدول زمني متكامل لعلاجات البشرة والشعر والحمام المغربي لتحقيق أفضل إشراقة يوم الزفاف.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>هل يتطلب الأمر موعداً مسبقاً أم يمكن الزيارة المباشرة؟</span>
+                        <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        نرحب بالزيارات المباشرة للاستفسار والاطلاع، ولكن نوصي دائماً بالحجز المسبق عبر الموقع أو الواتساب لضمان توفر الأخصائية المناسبة وتجنب الانتظار.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Location & Contact Section -->
-    <section class="location section" id="location">
+    <section class="location section bg-sand" id="location">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">زورونا وتواصلوا معنا</span>
-                <h2>موقعنا في بنغازي وطرق التواصل</h2>
+                <span class="section-subtitle">الموقع والوصول</span>
+                <h2>تفضلي بزيارتنا في بنغازي</h2>
+                <p>شارع العزيزية - تجربة تجميل راقية وسهلة الوصول في قلب المدينة.</p>
                 <div class="divider"></div>
             </div>
 
             <div class="contact-grid">
                 <div class="contact-info-card">
                     <div class="info-item">
-                        <div class="info-icon">📍</div>
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
                         <div>
-                            <h4>العنوان</h4>
+                            <h4>العنوان بالتفصيل</h4>
                             <p>شارع العزيزية (الشارع المقابل لصيدلية أفريقيا)، بنغازي، ليبيا</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon">🕒</div>
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
                         <div>
-                            <h4>أوقات العمل</h4>
-                            <p>السبت إلى الخميس: 10:00 صباحاً – 9:00 مساءً<br>الجمعة: مغلق</p>
+                            <h4>أوقات العمل الرسمية</h4>
+                            <p>السبت إلى الخميس: 10:00 صباحاً – 9:00 مساءً<br>الجمعة: عطلة أسبوعية</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon">📞</div>
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
                         <div>
-                            <h4>رقم الهاتف / واتساب</h4>
-                            <p>+218 92 XXXXXXX<br>+218 91 XXXXXXX</p>
+                            <h4>أرقام التواصل والحجز</h4>
+                            <p>هاتف: 092XXXXXXX<br>واتساب: +218 92 XXXXXXX</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon">🌐</div>
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </div>
                         <div>
-                            <h4>منصات التواصل</h4>
-                            <p>إنستغرام: @OpalCenters.Benghazi<br>فيسبوك: Opal Centers</p>
+                            <h4>قنوات التواصل الاجتماعي</h4>
+                            <p>انستغرام: @OpalCenters.Benghazi<br>فيسبوك: Opal Centers بنغازي</p>
                         </div>
                     </div>
-                    <a href="https://maps.app.goo.gl/fWJ65pRUiGYqJtR76" target="_blank" class="btn btn-outline btn-block">فتح الموقع على خريطة جوجل</a>
+                    <a href="https://maps.app.goo.gl/fWJ65pRUiGYqJtR76" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        فتح موقع المركز على خرائط جوجل
+                    </a>
                 </div>
 
                 <div class="contact-form-card">
-                    <h3>أرسل لنا استفساراً</h3>
+                    <h3>أرسلي لنا استفسارك</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">يسعدنا الإجابة عن أي تساؤل بخصوص الخدمات والأسعار المتاحة.</p>
                     <form id="inquiryForm">
                         <div class="form-group">
-                            <label for="inqName">الاسم الكريم</label>
-                            <input type="text" id="inqName" required placeholder="أدخل اسمك الكامل">
+                            <label for="inqName">الاسم الكريم *</label>
+                            <input type="text" id="inqName" required placeholder="أدخلي اسمك الكامل">
                         </div>
                         <div class="form-group">
-                            <label for="inqPhone">رقم الهاتف</label>
+                            <label for="inqPhone">رقم الهاتف (أو واتساب) *</label>
                             <input type="tel" id="inqPhone" required placeholder="092XXXXXXX">
                         </div>
                         <div class="form-group">
-                            <label for="inqMessage">الرسالة أو الاستفسار</label>
-                            <textarea id="inqMessage" rows="4" required placeholder="اكتب استفسارك هنا..."></textarea>
+                            <label for="inqMessage">تفاصيل الاستفسار *</label>
+                            <textarea id="inqMessage" rows="4" required placeholder="اكتبي استفسارك هنا..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">إرسال الاستفسار</button>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            إرسال الاستفسار
+                        </button>
                     </form>
                 </div>
             </div>
@@ -284,41 +597,56 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
-                <div class="logo">
-                    <span class="logo-icon">💎</span>
+                <a href="#" class="logo" style="margin-bottom: 1.25rem;">
+                    <svg class="logo-symbol" viewBox="0 0 100 100" fill="none" stroke="#C8A962" stroke-width="3">
+                        <polygon points="50,6 88,32 74,90 26,90 12,32" stroke="#C8A962" fill="rgba(200, 169, 98, 0.1)"/>
+                        <polygon points="50,6 74,90 26,90" stroke="#C8A962"/>
+                        <line x1="50" y1="6" x2="50" y2="90" stroke="#C8A962"/>
+                        <line x1="12" y1="32" x2="88" y2="32" stroke="#C8A962"/>
+                    </svg>
                     <div class="logo-text">
-                        <h3>مركز أوبال</h3>
-                        <span>Opal Centers</span>
+                        <h3 style="color: #FFFFFF; font-size: 1.35rem;">مركز أوبال</h3>
+                        <span class="logo-sub" style="color: #C8A962;">Opal Centers</span>
                     </div>
+                </a>
+                <p>الوجهة الأولى للجمال والعناية الشخصية في بنغازي، ليبيا. نمنحك تجربة تليق بأناقتك.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://wa.me/218920000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    </a>
                 </div>
-                <p>وجهتك الأولى للعناية الفاخرة والجمال المتكامل في بنغازي، ليبيا.</p>
             </div>
             <div class="footer-col">
-                <h4>روابط سريعة</h4>
+                <h4>أقسام الموقع</h4>
                 <ul>
                     <li><a href="#hero">الرئيسية</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#location">الموقع</a></li>
+                    <li><a href="#services">الخدمات والعلاجات</a></li>
+                    <li><a href="#about">فلسفة المركز</a></li>
+                    <li><a href="#features">معايير الجودة</a></li>
+                    <li><a href="#location">الموقع وخريطة الوصول</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>خدمات رئيسية</h4>
+                <h4>العلاجات المميزة</h4>
                 <ul>
-                    <li>العناية بالبشرة وهيدرافيشل</li>
-                    <li>إزالة الشعر بالليزر</li>
-                    <li>العناية بالشعر والقص</li>
-                    <li>السبا والحمام المغربي</li>
+                    <li><a href="#services">تنظيف هيدرافيشل ملكي</a></li>
+                    <li><a href="#services">إزالة الشعر بالليزر</a></li>
+                    <li><a href="#services">الحمام المغربي والمساج</a></li>
+                    <li><a href="#services">باقات العرائس الخاصة</a></li>
+                    <li><a href="#services">علاجات الشعر العميقة</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>تابعنا</h4>
-                <p>ابق على اطلاع دائم بأحدث العروض والخدمات الحصرية.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram">📸</a>
-                    <a href="#" aria-label="Facebook">📘</a>
-                    <a href="#" aria-label="WhatsApp">💬</a>
-                </div>
+                <h4>أوقات العمل والعنوان</h4>
+                <p>بنغازي - شارع العزيزية (مقابل صيدلية أفريقيا)</p>
+                <p style="margin-top: 0.5rem; color: #C8A962;">السبت – الخميس: 10 ص – 9 م</p>
+                <p style="color: #A9A49F;">الجمعة: مغلق</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -331,28 +659,34 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal" aria-label="إغلاق النافذة">&times;</button>
             <div class="modal-header">
-                <h3 id="modalTitle">💎 حجز موعد في مركز أوبال</h3>
-                <p>املئي البيانات أدناه وسنتواصل معك تأكيد الموعد في أقرب وقت.</p>
+                <svg class="modal-header-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+                    <polygon points="50,6 88,32 74,90 26,90 12,32" stroke="currentColor" fill="rgba(163, 123, 92, 0.08)"/>
+                    <polygon points="50,6 74,90 26,90" stroke="currentColor"/>
+                    <line x1="50" y1="6" x2="50" y2="90" stroke="currentColor"/>
+                </svg>
+                <h3 id="modalTitle">حجز موعد في مركز أوبال</h3>
+                <p>املئي البيانات أدناه لتأكيد حجزك، أو احجزي مباشرة عبر واتساب.</p>
             </div>
+
             <form id="bookingForm">
                 <div class="form-group">
                     <label for="bookName">الاسم الكريم *</label>
-                    <input type="text" id="bookName" required placeholder="ادخلي اسمك الكامل">
+                    <input type="text" id="bookName" required placeholder="أدخلي اسمك الكامل">
                 </div>
                 <div class="form-group">
                     <label for="bookPhone">رقم الهاتف (واتساب) *</label>
                     <input type="tel" id="bookPhone" required placeholder="092XXXXXXX">
                 </div>
                 <div class="form-group">
-                    <label for="bookService">اختر الخدمة *</label>
+                    <label for="bookService">الخدمة المطلوبة *</label>
                     <select id="bookService" required>
                         <option value="">-- اختاري الخدمة المطلوبة --</option>
-                        <option value="العناية بالبشرة">العناية بالبشرة وتنظيف عميق</option>
-                        <option value="إزالة الشعر بالليزر">إزالة الشعر بالليزر</option>
-                        <option value="العناية بالشعر">العناية بالشعر والقص</option>
-                        <option value="السبا والاسترخاء">السبا والاسترخاء للجسم</option>
-                        <option value="المكياج وبكجات العرائس">المكياج وبكجات العرائس</option>
-                        <option value="العناية بالأظافر">العناية بالأظافر واليدين</option>
+                        <option value="العناية بالبشرة">العناية بالبشرة وتنظيف عميق (هيدرافيشل)</option>
+                        <option value="إزالة الشعر بالليزر">إزالة الشعر بالليزر الطبي</option>
+                        <option value="العناية بالشعر">علاجات الشعر والقص والتصفيف</option>
+                        <option value="السبا والاسترخاء">السبا والحمام المغربي الفاخر</option>
+                        <option value="المكياج وبكجات العرائس">بكجات العرائس ومكياج السهرة</option>
+                        <option value="العناية بالأظافر">العناية بالأظافر واليدين (مانيكير وبديكير)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -361,15 +695,24 @@
                 </div>
                 <div class="form-group">
                     <label for="bookNotes">ملاحظات إضافية (اختياري)</label>
-                    <textarea id="bookNotes" rows="2" placeholder="أي تفضيلات أو مواعيد محددة..."></textarea>
+                    <textarea id="bookNotes" rows="2" placeholder="أي تفاصيل أو أوقات مفضلة للزيارة..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">تأكيد طلب الحجز</button>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">تأكيد طلب الحجز</button>
+                    <button type="button" class="btn btn-whatsapp" id="bookViaWhatsappBtn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        حجز عبر واتساب
+                    </button>
+                </div>
             </form>
+
             <div id="bookingSuccess" class="success-message hidden">
-                <div class="success-icon">✅</div>
-                <h4>تم إرسال طلب حجزك بنجاح!</h4>
-                <p>شكراً لثقتك بمركز أوبال. سيتواصل معك فريق خدمة العملاء عبر الهاتف أو الوساب لتأكيد الموعد خلال دقائق.</p>
-                <button class="btn btn-primary" id="resetBooking">حجز موعد آخر</button>
+                <div class="success-icon-box">
+                    <svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h4>تم تسجيل طلب حجزك بنجاح</h4>
+                <p>شكراً لاختيارك مركز أوبال. ستقوم مسؤولة خدمة العملاء بالاتصال بك لتأكيد التفاصيل وموعد الجلسة بدقة.</p>
+                <button class="btn btn-primary" id="resetBooking">تسجيل حجز آخر</button>
             </div>
         </div>
     </div>
